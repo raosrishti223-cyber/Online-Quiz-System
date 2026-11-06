@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Question Administration | Online Quiz System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/admin.js"></script>
+  </head>
+  <body class="page-shell" data-page="admin">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Quizly home">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span>quizly<span class="brand-period">.</span></span>
+      </a>
+      <a class="button button-quiet" href="index.html">Back to quiz</a>
+    </header>
+
+    <main class="admin-layout">
+      <section class="admin-login-card" id="adminLoginPanel" aria-labelledby="adminLoginTitle">
+        <div class="admin-card-icon" aria-hidden="true">Q</div>
+        <p class="eyebrow">RESTRICTED AREA</p>
+        <h1 id="adminLoginTitle">Administrator login</h1>
+        <p class="admin-intro">Sign in to view and manage the quiz questions.</p>
+        <form id="adminLoginForm" class="admin-form">
+          <label class="form-field">
+            <span>Username</span>
+            <input id="adminUsername" name="username" type="text" autocomplete="username" required maxlength="100">
+          </label>
+          <label class="form-field">
+            <span>Password</span>
+            <input id="adminPassword" name="password" type="password" autocomplete="current-password" required maxlength="200">
+          </label>
+          <p class="admin-message" id="loginMessage" role="alert" hidden></p>
+          <button class="button button-primary" type="submit">Sign in</button>
+        </form>
+        <p class="admin-footnote">For local setup, configure <code>QUIZ_ADMIN_USERNAME</code> and <code>QUIZ_ADMIN_PASSWORD</code> before starting the server.</p>
+      </section>
+
+      <section class="admin-dashboard" id="adminDashboard" hidden aria-labelledby="adminTitle">
+        <div class="admin-heading">
+          <div>
+            <p class="eyebrow">QUESTION BANK</p>
+            <h1 id="adminTitle">Manage questions</h1>
+            <p class="admin-intro">Add, edit, and remove four-option quiz questions.</p>
+          </div>
+          <button class="button button-secondary" id="adminLogout" type="button">Sign out</button>
+        </div>
+
+        <p class="admin-message" id="adminMessage" role="status" aria-live="polite" hidden></p>
+
+        <div class="admin-columns">
+          <section class="admin-panel" aria-labelledby="questionFormTitle">
+            <h2 id="questionFormTitle">Add a question</h2>
+            <form id="adminQuestionForm" class="admin-form">
+              <label class="form-field">
+                <span>Question</span>
+                <textarea id="questionText" name="question" rows="3" maxlength="500" required></textarea>
+              </label>
+              <fieldset class="option-fields">
+                <legend>Answer options</legend>
+                <label class="form-field">
+                  <span>Option A</span>
+                  <input id="option0" name="option0" type="text" maxlength="200" required>
+                </label>
+                <label class="form-field">
+                  <span>Option B</span>
+                  <input id="option1" name="option1" type="text" maxlength="200" required>
+                </label>
+                <label class="form-field">
+                  <span>Option C</span>
+                  <input id="option2" name="option2" type="text" maxlength="200" required>
+                </label>
+                <label class="form-field">
+                  <span>Option D</span>
+                  <input id="option3" name="option3" type="text" maxlength="200" required>
+                </label>
+              </fieldset>
+              <label class="form-field">
+                <span>Correct answer</span>
+                <select id="correctAnswer" name="correctAnswer" required>
+                  <option value="0">Option A</option>
+                  <option value="1">Option B</option>
+                  <option value="2">Option C</option>
+                  <option value="3">Option D</option>
+                </select>
+              </label>
+              <div class="form-actions">
+                <button class="button button-primary" id="saveQuestion" type="submit">Add question</button>
+                <button class="button button-secondary" id="cancelEdit" type="button" hidden>Cancel edit</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="admin-panel question-list-panel" aria-labelledby="questionListTitle">
+            <div class="question-list-heading">
+              <h2 id="questionListTitle">Saved questions</h2>
+              <span class="question-list-count" id="questionListCount">0</span>
+            </div>
+            <div class="table-scroll">
+              <table class="question-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Question</th>
+                    <th scope="col">Correct option</th>
+                    <th scope="col"><span class="sr-only">Actions</span></th>
+                  </tr>
+                </thead>
+                <tbody id="questionRows"></tbody>
+              </table>
+            </div>
+            <p class="empty-questions" id="emptyQuestions" hidden>No questions have been added yet.</p>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

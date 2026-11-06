@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Take the Quiz | Online Quiz System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/quiz.js"></script>
+  </head>
+  <body class="page-shell" data-page="quiz">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Quizly home">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span>quizly<span class="brand-period">.</span></span>
+      </a>
+      <div class="quiz-header-actions">
+        <a class="button button-quiet" href="admin.html">Administrator</a>
+        <button class="button button-quiet exit-button" id="exitQuiz" type="button">
+          <span aria-hidden="true">↗</span> Exit quiz
+        </button>
+      </div>
+    </header>
+
+    <main class="quiz-layout">
+      <div class="quiz-heading">
+        <div>
+          <p class="eyebrow">SPRINT 1 · KNOWLEDGE CHECK</p>
+          <h1>Your quiz</h1>
+        </div>
+        <p class="quiz-progress-copy" id="answerProgress" aria-live="polite">Loading questions…</p>
+      </div>
+
+      <section class="quiz-card" aria-labelledby="questionLegend">
+        <div class="question-topline">
+          <span class="question-count" id="questionCount">Question — of —</span>
+          <span class="question-tag">MULTIPLE CHOICE</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Question progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="questionProgress">
+          <span class="progress-fill" id="progressFill"></span>
+        </div>
+
+        <div class="question-content" id="questionContent" aria-live="polite">
+          <fieldset class="answer-group" id="answerGroup" disabled>
+            <legend id="questionLegend">Loading your questions…</legend>
+            <div class="answer-list" id="answerList"></div>
+          </fieldset>
+          <p class="error-message" id="loadError" role="alert" hidden></p>
+        </div>
+
+        <div class="question-index" id="questionIndex" aria-label="Jump to a question"></div>
+        <div class="quiz-actions">
+          <button class="button button-secondary" id="previousQuestion" type="button" disabled>
+            <span aria-hidden="true">←</span> Previous
+          </button>
+          <div class="quiz-actions-right">
+            <button class="button button-secondary" id="nextQuestion" type="button" disabled>
+              Next <span aria-hidden="true">→</span>
+            </button>
+            <button class="button button-primary" id="submitQuiz" type="button" disabled>
+              Submit Quiz <span aria-hidden="true">✓</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <p class="quiz-tip"><span aria-hidden="true">✦</span> Your answers are saved as you go. Revisit any question before submitting.</p>
+    </main>
+
+    <dialog class="confirm-dialog" id="submitDialog" aria-labelledby="dialogTitle">
+      <form method="dialog" class="dialog-content">
+        <span class="dialog-icon" aria-hidden="true">?</span>
+        <h2 id="dialogTitle">Ready to submit?</h2>
+        <p id="dialogMessage"></p>
+        <div class="dialog-actions">
+          <button class="button button-secondary" id="cancelSubmit" type="button">Review answers</button>
+          <button class="button button-primary" id="confirmSubmit" type="button">Submit quiz</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="confirm-dialog" id="exitDialog" aria-labelledby="exitDialogTitle">
+      <div class="dialog-content">
+        <span class="dialog-icon dialog-icon-muted" aria-hidden="true">↗</span>
+        <h2 id="exitDialogTitle">Leave this quiz?</h2>
+        <p>Your current answers will be cleared if you exit.</p>
+        <div class="dialog-actions">
+          <button class="button button-secondary" id="cancelExit" type="button">Stay here</button>
+          <button class="button button-danger" id="confirmExit" type="button">Exit quiz</button>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>

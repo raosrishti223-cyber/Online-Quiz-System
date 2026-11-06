@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Online Quiz System | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Quizly home">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span>quizly<span class="brand-period">.</span></span>
+      </a>
+      <a class="button button-quiet" href="admin.html">Administrator</a>
+    </header>
+
+    <main class="landing">
+      <section class="hero-card" aria-labelledby="welcome-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> YOUR KNOWLEDGE, IN FOCUS</p>
+          <h1 id="welcome-title">A little curiosity goes a <span>long way.</span></h1>
+          <p class="hero-description">
+            Take a short multiple-choice quiz. Choose your answers, move between questions,
+            and submit when you are ready.
+          </p>
+          <a class="button button-primary button-large" href="quiz.html?new=1">
+            Start Quiz <span aria-hidden="true">→</span>
+          </a>
+          <p class="helper-text">5 questions <span aria-hidden="true">·</span> 4 options each <span aria-hidden="true">·</span> No time limit</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-card">
+            <span class="art-kicker">QUICK QUIZ</span>
+            <span class="art-question">Ready to<br>put your skills<br>to the test?</span>
+            <span class="art-check">✓</span>
+          </div>
+          <span class="art-spark spark-one">✳</span>
+          <span class="art-spark spark-two">✦</span>
+          <span class="art-number">01 — 05</span>
+        </div>
+      </section>
+      <p class="landing-footnote">Take your time. You can revisit your answers before you submit.</p>
+    </main>
+    <script type="module" src="js/quiz.js"></script>
+  </body>
+</html>
