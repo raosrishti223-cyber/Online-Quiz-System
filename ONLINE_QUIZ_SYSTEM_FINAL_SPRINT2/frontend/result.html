@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Quiz Submitted | Online Quiz System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/quiz.js"></script>
+  </head>
+  <body class="page-shell" data-page="result">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Quizly home">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span>quizly<span class="brand-period">.</span></span>
+      </a>
+      <a class="button button-quiet" href="admin.html">Administrator</a>
+    </header>
+
+    <main class="result-layout">
+      <section class="result-card" aria-labelledby="resultTitle">
+        <div class="result-icon" aria-hidden="true">✓</div>
+        <p class="eyebrow">QUIZ COMPLETE</p>
+        <h1 id="resultTitle">Your answers are in.</h1>
+        <p class="result-description" id="resultDescription" aria-live="polite">
+          Loading your submission…
+        </p>
+        <div class="score-summary" id="scoreSummary" hidden>
+          <span class="score-percentage" id="scorePercentage">0%</span>
+          <span class="score-fraction" id="scoreFraction">0 of 0 correct</span>
+        </div>
+        <div class="result-counts" id="resultCounts" hidden>
+          <div class="result-count">
+            <span class="result-count-value" id="correctCount">0</span>
+            <span class="result-count-label">Correct</span>
+          </div>
+          <div class="result-count">
+            <span class="result-count-value" id="unansweredCount">0</span>
+            <span class="result-count-label">Unanswered</span>
+          </div>
+          <div class="result-count">
+            <span class="result-count-value" id="incorrectCount">0</span>
+            <span class="result-count-label">Incorrect</span>
+          </div>
+          <div class="result-count">
+            <span class="result-count-value" id="totalCount">0</span>
+            <span class="result-count-label">Total questions</span>
+          </div>
+        </div>
+        <a class="button button-primary button-large" id="returnHome" href="index.html">
+          Back to home <span aria-hidden="true">→</span>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
